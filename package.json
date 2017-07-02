@@ -3,18 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.5",
-    "serve": "^2.1.2"
+    "react-scripts": "^1.0.10",
+    "serve": "^6.0.0"
   },
   "dependencies": {
     "bootswatch": "^3.3.7",
-    "ramda": "^0.23.0",
+    "ramda": "^0.24.1",
     "react": "^15.4.2",
-    "react-bootstrap": "^0.30.7",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
-    "redux-logger": "^2.7.4",
+    "redux-logger": "^3.0.6",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0"
   },

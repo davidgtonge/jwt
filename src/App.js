@@ -1,13 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
-import {Grid, Row, Col} from "react-bootstrap"
+import { Grid, Row, Col } from "react-bootstrap"
 
 const App = () => {
   return (
     <Grid>
       <Row>
         <Col xs={12}>
-          <h1>Cloudcover</h1>
+          <h1>Starter App</h1>
           <p>Test</p>
         </Col>
       </Row>
