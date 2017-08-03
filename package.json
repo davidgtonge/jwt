@@ -7,16 +7,16 @@
     "serve": "^6.0.0"
   },
   "dependencies": {
-    "bootswatch": "^3.3.7",
     "ramda": "^0.24.1",
     "react": "^15.4.2",
-    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
     "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "semantic-ui-css": "^2.2.11",
+    "semantic-ui-react": "^0.71.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,10 +29,7 @@
   "eslintConfig": {
     "extends": "react-app",
     "rules": {
-      "semi": [
-        2,
-        "never"
-      ]
+      "semi": [2, "never"]
     }
   }
 }
