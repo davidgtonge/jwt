@@ -29,7 +29,10 @@
   "eslintConfig": {
     "extends": "react-app",
     "rules": {
-      "semi": [2, "never"]
+      "semi": [
+        2,
+        "never"
+      ]
     }
   }
 }
