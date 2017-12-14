@@ -26,7 +26,8 @@ export default function({ keys, jwt }) {
   if (!decoded) return null
   const kid = R.path(["header", "kid"])(decoded)
   const keyFound = kid && R.find(R.propEq("kid", kid))(keys || [])
-  const notExpired = decoded.payload.exp > Date.now() / 1000
+  const expiry = decoded.payload.exp
+  const notExpired = expiry > Date.now() / 1000
   let sigValid = false
   let jwtValid = false
   if (keyFound) {
@@ -61,17 +62,19 @@ export default function({ keys, jwt }) {
         description="The signature of the JWT has been verified using a matching public key from the jwks endpoint"
         descriptionX="The  signature of the JWT has not been verified"
       />
-      <Item
-        valid={notExpired}
-        title="Not expired"
-        titleX="Expired"
-        descriptionX={`The JWT expired on ${new Date(
-          decoded.payload.exp * 1000
-        )}`}
-        description={`The JWT will expire on ${new Date(
-          decoded.payload.exp * 1000
-        )}`}
-      />
+      {expiry ? (
+        <Item
+          valid={notExpired}
+          title="Not expired"
+          titleX="Expired"
+          descriptionX={`The JWT expired on ${new Date(
+            decoded.payload.exp * 1000
+          )}`}
+          description={`The JWT will expire on ${new Date(
+            decoded.payload.exp * 1000
+          )}`}
+        />
+      ) : null}
     </Segment>
   )
 }
