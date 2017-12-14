@@ -11,7 +11,7 @@ import { reducer, reset } from "./module"
 import App from "./App"
 
 const logger = createLogger({
-  predicate: (getState, action) => action.type !== "TICK"
+  predicate: (getState, action) => action.type !== "TICK",
 })
 const store = createStore(reducer, applyMiddleware(thunk, promise, logger))
 store.dispatch(reset())
