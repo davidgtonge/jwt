@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Input, Segment, Divider } from "semantic-ui-react"
+import { Form, Input, Segment, Divider, Message } from "semantic-ui-react"
 
 const link1 = "https://www.googleapis.com/oauth2/v3/certs"
 const link2 = "https://accounts.google.com"
@@ -29,6 +29,11 @@ export default function JWKSInput({ jwks, updateJWKS, loading }) {
           {link2}
         </a>
       </p>
+      <Message size="mini">
+        The request is sent via a{" "}
+        <a href="https://github.com/davidgtonge/jwks-proxy">proxy</a> as most
+        JWKS endpoints aren't available cross-origin.
+      </Message>
     </Segment>
   )
 }
