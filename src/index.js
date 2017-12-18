@@ -6,8 +6,9 @@ import { applyMiddleware, createStore } from "redux"
 import thunk from "redux-thunk"
 import promise from "redux-promise"
 import { createLogger } from "redux-logger"
+import qs from "querystring"
 
-import { reducer, reset } from "./module"
+import { reducer, reset, updateJWT, updateJWKS } from "./module"
 import App from "./App"
 
 const logger = createLogger({
@@ -22,3 +23,14 @@ render(
   </Provider>,
   document.getElementById("root")
 )
+
+const hash = window.location.hash.substr(1)
+if (hash) {
+  const { jwt, jwks } = qs.parse(hash)
+  if (jwt) {
+    store.dispatch(updateJWT(jwt))
+  }
+  if (jwks) {
+    store.dispatch(updateJWKS(jwks))
+  }
+}

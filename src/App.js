@@ -12,9 +12,9 @@ import JWTMetadata from "./components/jwt-metadata"
 
 const content = `
 There are some great jwt debuggers online, but this one verifies tokens using jwks endpoints. 
-Simply paste your JWT and the url of either the JWKS endpoint or the issuer 
+Simply paste your jwt and the url of either the jwks endpoint or the issuer 
 domain that contains the OpenID Configuration and the site will attempt to 
-check the signature and verify the JWT.
+check the signature and verify the jwt.
 `
 
 const App = ({ jwt, updateJWT, jwks, updateJWKS, loadingKeys, jwksKeys }) => {
@@ -37,6 +37,9 @@ const App = ({ jwt, updateJWT, jwks, updateJWKS, loadingKeys, jwksKeys }) => {
               loading={loadingKeys}
             />
             <JWKSDetails keys={jwksKeys} />
+            <Segment>
+              <a href={`/#jwt=${jwt}&jwks=${jwks}`}>Sharable link</a>
+            </Segment>
           </Grid.Column>
           <Grid.Column width={10}>
             <Grid.Row>

@@ -45,19 +45,19 @@ export default function({ keys, jwt }) {
         valid={jwtValid}
         title="JWT is valid"
         titleX="JWT is invalid"
-        description="The JWT has been verified and is valid for use. (NB in production applications the audience, subject and issuer claims should also be checked"
+        description="The JWT has been verified and is valid for use. (NB in production applications the audience, subject and issuer claims should also be checked)"
         descriptionX="The JWT has not been verified and is not valid for use"
       />
       <Item
         valid={keyFound}
-        title="Key Found"
-        titleX="Key Not Found"
+        title="Key found"
+        titleX="Key not found"
         description="A key with a matching `kid` was found at the jwks endpoint "
-        descriptionX="No mathcing key was found"
+        descriptionX="No matching key was found"
       />
       <Item
         valid={sigValid}
-        title="Signature Verified"
+        title="Signature verified"
         titleX="Signature not verified"
         description="The signature of the JWT has been verified using a matching public key from the jwks endpoint"
         descriptionX="The  signature of the JWT has not been verified"
