@@ -1,6 +1,17 @@
 import R from "ramda"
 import createReducer from "./helpers/create-reducer"
 import getKey from "./helpers/get-key"
+import KJUR from "jsrsasign"
+
+const decode = jwt => {
+  try {
+    const { payloadObj, headerObj } = KJUR.jws.JWS.parse(jwt)
+    return { header: headerObj, payload: payloadObj }
+  } catch (e) {
+    console.log(e)
+    return {}
+  }
+}
 
 // Types
 const RESET = "RESET"
@@ -13,7 +24,6 @@ const ERROR_FETCHING_KEYS = "ERROR_FETCHING_KEYS"
 // Action Creators
 export const reset = R.always({ type: RESET, payload: {} })
 
-export const updateJWT = payload => ({ type: UPDATE_JWT, payload })
 export const updateJWKS = payload => (dispatch, getState) => {
   dispatch({ type: UPDATE_JWKS, payload })
   if (payload.indexOf("http") === 0 && !getState().keys[payload]) {
@@ -26,6 +36,19 @@ export const updateJWKS = payload => (dispatch, getState) => {
         })
       })
       .catch(() => dispatch({ type: ERROR_FETCHING_KEYS, payload: {} }))
+  }
+}
+
+
+export const updateJWT = payload => (dispatch, getState) => {
+  dispatch({ type: UPDATE_JWT, payload })
+  console.log("check state", getState().jwks)
+  if (!getState().jwks) {
+    const token = decode(payload)
+    console.log({token})
+    if (token.payload && token.payload.iss) {
+      updateJWKS(token.payload.iss)(dispatch, getState)
+    }
   }
 }
 
