@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { updateJWT, updateJWKS } from "./module"
+import { updateJWT, updateJWKS, useProxy } from "./module"
 
 import { Grid, Message, Divider, Segment, Icon } from "semantic-ui-react"
 import Title from "./components/title"
@@ -17,7 +17,7 @@ domain that contains the OpenID Configuration and the site will attempt to
 check the signature and verify the jwt.
 `
 
-const App = ({ jwt, updateJWT, jwks, updateJWKS, loadingKeys, jwksKeys }) => {
+const App = ({ jwt, updateJWT, jwks, updateJWKS, useProxy, loadingKeys, jwksKeys }) => {
   return (
     <div>
       <Title />
@@ -35,6 +35,7 @@ const App = ({ jwt, updateJWT, jwks, updateJWKS, loadingKeys, jwksKeys }) => {
               jwks={jwks}
               updateJWKS={updateJWKS}
               loading={loadingKeys}
+              useProxy={useProxy}
             />
             <JWKSDetails keys={jwksKeys} />
             <Segment>
@@ -104,6 +105,6 @@ const mapStateToProps = state => {
   }
 }
 
-const actionMap = { updateJWT, updateJWKS }
+const actionMap = { updateJWT, updateJWKS, useProxy }
 
 export default connect(mapStateToProps, actionMap)(App)
