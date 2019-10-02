@@ -20,6 +20,7 @@ const UPDATE_JWKS = "UPDATE_JWKS"
 const LOADING_KEYS = "LOADING_KEYS"
 const FETCHED_KEYS = "FETCHED_KEYS"
 const ERROR_FETCHING_KEYS = "ERROR_FETCHING_KEYS"
+const USE_PROXY = "USE_PROXY"
 
 // Action Creators
 export const reset = R.always({ type: RESET, payload: {} })
@@ -27,7 +28,7 @@ export const reset = R.always({ type: RESET, payload: {} })
 export const updateJWKS = payload => (dispatch, getState) => {
   dispatch({ type: UPDATE_JWKS, payload })
   if (payload.indexOf("http") === 0 && !getState().keys[payload]) {
-    getKey(payload, () => dispatch({ type: LOADING_KEYS, payload: {} }))
+    getKey(payload, getState().useProxy, () => dispatch({ type: LOADING_KEYS, payload: {} }))
       .then(({ keys, uri }) => {
         if (uri !== payload) return
         dispatch({
@@ -52,12 +53,21 @@ export const updateJWT = payload => (dispatch, getState) => {
   }
 }
 
+export const useProxy = useProxy => (dispatch, getState) => {
+  dispatch({
+    type: USE_PROXY,
+    payload: {useProxy: useProxy},
+  })
+  console.log("use proxy", getState().useProxy)
+}
+
 // Reducer
 const initialState = {
   loadingKeys: false,
   keys: {},
   jwks: "",
   jwt: "",
+  useProxy: true,
 }
 
 export const reducer = createReducer(initialState, {
@@ -68,4 +78,5 @@ export const reducer = createReducer(initialState, {
     R.compose(R.assocPath(["keys", uri], keys), R.assoc("loadingKeys", false)),
   [ERROR_FETCHING_KEYS]: () => R.assoc("loadingKeys", false),
   [LOADING_KEYS]: () => R.assoc("loadingKeys", true),
+  [USE_PROXY]: ({useProxy}) => R.assoc("useProxy", useProxy),
 })
