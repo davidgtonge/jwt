@@ -29,7 +29,7 @@ export default function JWKSInput({ jwks, updateJWKS, useProxy, loading }) {
           {link2}
         </a>
       </p>
-      <Checkbox label='Use proxy'
+      {/* <Checkbox label='Use proxy'
        defaultChecked
        onChange={(e, proxy) => useProxy(proxy.checked)}
        />
@@ -37,7 +37,7 @@ export default function JWKSInput({ jwks, updateJWKS, useProxy, loading }) {
         Request is optionally sent via a{" "}
         <a href="https://github.com/davidgtonge/jwks-proxy">proxy</a> as most
         JWKS endpoints aren't available cross-origin.
-      </Message>
+      </Message> */}
     </Segment>
   )
 }
