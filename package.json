@@ -3,21 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "^1.0.10"
+    "react-scripts": "^4.0.3"
   },
   "dependencies": {
     "debounce": "^1.1.0",
     "debounce-promise": "^3.0.2",
-    "jsrsasign": "^8.0.4",
+    "jsrsasign": "^10.3.0",
     "ramda": "^0.24.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-json-view": "^1.14.0",
     "react-redux": "^5.0.2",
-    "redux": "^3.6.0",
+    "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
-    "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.1.0",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.2.11",
     "semantic-ui-react": "^0.71.3"
   },
@@ -37,5 +37,17 @@
         "never"
       ]
     }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

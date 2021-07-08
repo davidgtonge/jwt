@@ -1,12 +1,12 @@
 import debounce from "debounce-promise"
 import R from "ramda"
 
-const PROXY = "https://jwks.davetonge.co.uk/"
+// const PROXY = "https://jwks.davetonge.co.uk/"
 
 const getKey = (uri, useProxy, onStart) => {
-  if (useProxy) {
-    uri = PROXY + btoa(uri)
-  }
+  // if (useProxy) {
+  //   uri = PROXY + btoa(uri)
+  // }
   onStart()
   return fetch(uri)
     .then(res => res.json())
