@@ -1,0 +1,20 @@
+import type { JwkKey } from "../../src/types.ts";
+
+export const testKid = "test-kid";
+
+export const testKeys: JwkKey[] = [
+  {
+    kty: "RSA",
+    n: "7aeTeGFoca23UhDwc9V9DjUCr34BywFSgtS89IUa2lMQdA9y_qUPwxtefdJlmkUY6uFXRe37_LQ-Z56-awkm7f3oYi6oD00rxBcgYw7HhMbgEJ5dFpKZ-QlSwXyFoaW54Q9tlVGZddDR22UKmzk4GicDiUOB8ZNLvbOuz1q0wS_ztPlbUwzqcfHYfqGm3iQrr5fzsnqrFvIn6L6Um6lcY98nLKZ3KE5LG4fVNu8NoGXg09bSpYebdIDV3vKGu47QCofnrcls4KUQsJSVUe3h0Nea2Unfho21LwB7qphF_czVUapI_dBjq_IoYz0knu4Ik6I16MtzXCUcrb4yR6bNuQ",
+    e: "AQAB",
+    kid: testKid,
+    alg: "RS256",
+    use: "sig",
+  },
+];
+
+export const validJwt =
+  "eyJhbGciOiJSUzI1NiIsImtpZCI6InRlc3Qta2lkIn0.eyJzdWIiOiJ1c2VyLTEyMyIsImlzcyI6Imh0dHBzOi8vaXNzdWVyLmV4YW1wbGUiLCJpYXQiOjE3ODE0MjM3MjUsImV4cCI6MTc4MTQzMDkyNX0.tnqLGh9k2-xokcTL764KGEfKz8cW60fL3Nk6jKZFS0YTYWpdR7oxQzsH8TomfPSylTh3MxgkW6YbFFJk5iUkO0sDQSAmddKo4F1Pd4VqgrSSnIJZlq-SKceQNZSRwdphb91gsK0BpjBm0Lgrq2_uHfk57wbB4LZhXTLd5d9Ax70pzUKDCla1H8CzK03wg7oB25SQ5rwW-lF3YxmpWL1lir5HZ1kYB0jq0uwST56sH8rSikyKa3Bk56nDiKXrcwCZj2bFLvz51P4iJM_nZzZ1Rj1tkCYIIJHqxmmtaaArOHS9czJ4mk1x0FBBNqOgwDLkyi3LJGvUKzMB4eNEf5yNhQ";
+
+export const expiredJwt =
+  "eyJhbGciOiJSUzI1NiIsImtpZCI6InRlc3Qta2lkIn0.eyJzdWIiOiJ1c2VyLTEyMyIsImlzcyI6Imh0dHBzOi8vaXNzdWVyLmV4YW1wbGUiLCJpYXQiOjE3ODE0MjM3MjUsImV4cCI6MTc4MTQyMzY2NX0.j0A9zMHu4w-vxlKxx5xBdFvtWkn6V6ZQ7XAGzSSQtBMvgB8eSSD_BypnM1nGdZBjRA8R7HGpkfZFNlx7twuQVT3VLBYBYFTWQcrsIX1KDAQYuNjsmIPoRQRc6aJbsXD5Cb-YUHXhnCZ_QmgRLncf2izmhpO_GQBUsDLkz5Wk_gtuc9DqwReFbsqvdX9e9VIDDeigf-lKlpuR67628GEq5knGrK_Yi1dwT6jVtfvox-H7945riwQS_KSQH24nZdBAYpfzUUOR2jX4mLSXMt8LiYlw53zDu5fHq-A1ywUIOTbDgHKVN5VHo6tgX-0CL4kAzmDdC7rjoOZEuo4Z5p_cYA";
